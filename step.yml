@@ -1,18 +1,15 @@
-#
-# A couple of useful guides & docs:
-#
-# - Main Bitrise CLI docs: https://github.com/bitrise-io/bitrise/tree/master/_docs
-# - Step Development Guideline: https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md
-# - Bitrise.yml format spec: https://github.com/bitrise-io/bitrise/blob/master/_docs/bitrise-yml-format-spec.md
-# - Bitrise docs: http://devcenter.bitrise.io/
-# - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
-
 title: |-
-  VPNC Connect
-summary: |
-  Connects with Cisco VPN
-description: |
-  Connects with Cisco VPN using provided configuration
+  Cisco VPN connect
+summary: |-
+  Connects with Cisco VPN provided by VPN3000 Concentrator, Juniper/Netscreen, IOS and PIX using vpnc
+description: |-
+  VPN client settings and credentials can be provided in several ways:
+  - existing config file `/etc/vpnc.conf`
+  - commandline options input in this step
+  - config file content input in this step
+  More info about available configuration options and settings resolution order can be found on
+  [vpnc homepage](https://www.unix-ag.uni-kl.de/~massar/vpnc/) and [manual](https://linux.die.net/man/8/vpnc).
+
 website: https://github.com/DroidsOnRoids/bitrise-step-vpnc-connect
 source_code_url: https://github.com/DroidsOnRoids/bitrise-step-vpnc-connect
 support_url: https://github.com/DroidsOnRoids/bitrise-step-vpnc-connect
@@ -36,24 +33,19 @@ toolkit:
 inputs:
   - commandline_options:
     opts:
-      title: "Example Step Input"
-      summary: Summary. No more than 2-3 sentences.
+      title: "Commandline options"
+      summary: "vpnc commandline options"
       description: |    
-        Description of this input.
-
-        Can be Markdown formatted text.
+        Options specified here will take precedence over config files.
       is_expand: true 
       is_required: false
-      value_options: []
 
   - config_file_content:
     opts:
-      title: "Example Step Input"
-      summary: Summary. No more than 2-3 sentences.
+      title: "Config file content"
+      summary: "Default config file content"
       description: |
-        Description of this input.
+        If not empty, value will be saved to `/etc/vpnc/default.conf` overwriting existing file.
 
-        Can be Markdown formatted text.
       is_expand: false
       is_required: false
-      value_options: []
