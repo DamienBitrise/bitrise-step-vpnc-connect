@@ -5,4 +5,5 @@ if [[ ! -z ${config_file_content} ]]; then
   echo "${config_file_content}" > /etc/vpnc/default.conf
 fi
 
-eval vpnc "${commandline_options}"
+set -- ${commandline_options}
+vpnc "$@"
