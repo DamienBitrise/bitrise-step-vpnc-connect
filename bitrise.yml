@@ -24,10 +24,25 @@ workflows:
         - path: ./_tmp
         - is_create_path: true
     - path::./:
-        title: Step Test
+        title: Long help test
         run_if: true
         inputs:
         - commandline_options: --long-help
+    - generate-text-file@0.0.3:
+        inputs:
+        - file_content: |-
+            IPSec gateway localhost
+            IPSec ID ID
+            IPSec secret secret
+            Xauth username login
+            Xauth password pass
+        - file_name: dummy.conf
+    - path::./:
+        title: Print config test
+        run_if: true
+        inputs:
+        - commandline_options: --print-config ./dummy.conf
+
 
   # ----------------------------------------------------------------
   # --- workflows to Share this step into a Step Library
