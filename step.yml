@@ -12,7 +12,7 @@ description: |-
 
 website: https://github.com/DroidsOnRoids/bitrise-step-vpnc-connect
 source_code_url: https://github.com/DroidsOnRoids/bitrise-step-vpnc-connect
-support_url: https://github.com/DroidsOnRoids/bitrise-step-vpnc-connect
+support_url: https://github.com/DroidsOnRoids/bitrise-step-vpnc-connect/issues
 
 type_tags:
   - utility
@@ -26,10 +26,6 @@ deps:
   apt_get:
   - name: vpnc
 
-toolkit:
-  bash:
-    entry_file: step.sh
-
 inputs:
   - commandline_options:
     opts:
@@ -37,8 +33,6 @@ inputs:
       summary: "vpnc commandline options"
       description: |    
         Options specified here will take precedence over config files.
-      is_expand: true 
-      is_required: false
 
   - config_file_content:
     opts:
@@ -48,4 +42,3 @@ inputs:
         If not empty, value will be saved to `/etc/vpnc/default.conf` overwriting existing file.
 
       is_expand: false
-      is_required: false
