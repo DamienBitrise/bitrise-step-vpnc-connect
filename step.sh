@@ -1,4 +1,4 @@
-#!/usr/bin/env/bash
+#!/usr/bin/env bash
 set -e
 
 if [[ ! -z ${config_file_content} ]]; then
